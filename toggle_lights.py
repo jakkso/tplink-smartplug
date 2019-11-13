@@ -26,10 +26,10 @@ def toggle(device, state):
     State: Valid states are `on` and `off`.
     """
     if device not in DEVICES:
-        return click.echo("Invalid device `" + device + "`")
+        return click.echo(f"Invalid device `{device}`")
     if state not in ("on", "off"):
         return click.echo(
-            "Invalid state `" + state + "`.  `on` and `off` are the only valid values."
+            f"Invalid state `{state}`: `on` and `off` are the only valid values."
         )
     result = send_command(ip_address=DEVICES[device], command=COMMANDS[state])
     return click.echo(result)
